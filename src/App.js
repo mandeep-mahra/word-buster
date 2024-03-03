@@ -2,11 +2,11 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import DisplayWord from "./displayWord.js";
 import { words } from "./words";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTimer } from 'react-timer-hook';
 import { updateData, getScores } from "./firebase";
 import heart from "./resources/heart-solid.svg";
 
+const buffer = 3;
 const startTime = new Date();
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
       setWord("");
       setScore(score + 1);
       const time = new Date();
-      time.setSeconds(time.getSeconds() + 5);
+      time.setSeconds(time.getSeconds() + buffer);
       restart(time);
       if((score + 1) % 10 == 0)
         setLives(lives + 1);
@@ -80,7 +80,7 @@ function App() {
         setDisplayScore(true);
       }
       const time = new Date();
-      time.setSeconds(time.getSeconds() + 5);
+      time.setSeconds(time.getSeconds() + buffer);
       restart(time);
     }
   }
