@@ -6,7 +6,7 @@ import { useTimer } from 'react-timer-hook';
 import { updateData, getScores } from "./firebase";
 import heart from "./resources/heart-solid.svg";
 
-const buffer = 3;
+var buffer = 5;
 const startTime = new Date();
 
 function App() {
@@ -32,10 +32,11 @@ function App() {
     getScores().then((res) => {
       var dataArray = [];
       Object.keys(res).map((curr) => {
-        dataArray.push([[res[curr]],  curr])
+        dataArray.push([parseInt([res[curr]]),  curr])
       })
-      dataArray.sort();
+      dataArray.sort(function(a, b){return a-b});
       dataArray.reverse();
+      console.log(dataArray, typeof(dataArray[0][0]));
       setScoreBoard(dataArray);
     }) 
   }, [submit])
@@ -65,10 +66,11 @@ function App() {
       setWord("");
       setScore(score + 1);
       const time = new Date();
-      time.setSeconds(time.getSeconds() + buffer);
+      time.setSeconds(time.getSeconds() + Math.ceil(buffer));
       restart(time);
       if((score + 1) % 10 == 0)
         setLives(lives + 1);
+      buffer -= 0.02;
     }    
     else if(e.key === 'Enter' || e.key === ' '){
       setLives(lives - 1);
@@ -80,7 +82,7 @@ function App() {
         setDisplayScore(true);
       }
       const time = new Date();
-      time.setSeconds(time.getSeconds() + buffer);
+      time.setSeconds(time.getSeconds() + Math.ceil(buffer));
       restart(time);
     }
   }
