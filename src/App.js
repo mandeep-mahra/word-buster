@@ -34,7 +34,7 @@ function App() {
       Object.keys(res).map((curr) => {
         dataArray.push([parseInt([res[curr]]),  curr])
       })
-      dataArray.sort(function(a, b){return a-b});
+      dataArray.sort(function(a, b){return a[0]-b[0]});
       dataArray.reverse();
       console.log(dataArray, typeof(dataArray[0][0]));
       setScoreBoard(dataArray);
