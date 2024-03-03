@@ -1,38 +1,58 @@
-.App {
+.inputBox{
+  height: 10vh;
+  border : solid black 3px;
+  border-radius: 2vh;
+  font-size: 5vh;
+  padding : 2vh;
+}
+
+.wordArea{
+  width : 100%;
+}
+
+.annim{
+  position: relative;
+  animation: le 60ms 10 alternate;
+}
+@keyframes le {
+  0%{top:0px}
+  50%{transform: rotate(1deg);}
+  80%{transform: rotate(-1deg);}
+  100%{top:10px}
+
+}
+
+.dispWord{
+  font-size : 8vh;
+}
+
+.score{
+  font-size: 3vh;
+  font-weight: 300;
+}
+
+.timer{
+  font-size: 4vh;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dispScore{
+  font-size: 4vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+td{
+  min-width: 6vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.scoreboard{
+  font-size: 3vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.showScore{
+  position: absolute;
+  font-size: 3vh;
+  font-weight: 300;
+  cursor: pointer;
+  right : 2%;
+  top : 3%
 }
