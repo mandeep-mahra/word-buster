@@ -56,3 +56,8 @@ td{
   right : 2%;
   top : 3%
 }
+
+.heart{
+  max-width : 3vh;
+  margin-left : 0.5vh;
+}

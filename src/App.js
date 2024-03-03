@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import DisplayWord from "./displayWord.js";
 import { words } from "./words";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useTimer } from 'react-timer-hook';
 import { updateData, getScores } from "./firebase";
+import heart from "./resources/heart-solid.svg";
 
 const startTime = new Date();
 
@@ -110,7 +110,7 @@ function App() {
         <div className="score m-4 mt-5 w-100 position-absolute">
           Lives :
           {(Array(lives).fill(0)).map((x) => 
-            <FontAwesomeIcon icon = {faHeart} className= "ms-1"/>
+            <img className = "heart" src = {heart}></img>
           )}
         </div>
         <div className = "showScore" onClick={() => {setDisplayScore(true)}}>
