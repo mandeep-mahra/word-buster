@@ -25,6 +25,10 @@ function App() {
   } = useTimer({ startTime, onExpire: () => handleTimeout() });
 
   useEffect(()=>{
+    if(localStorage.getItem("page") === "scoreboard")
+      setDisplayScore(true);
+    else
+      setDisplayScore(false);
     getScores().then((res) => {
       var dataArray = [];
       Object.keys(res).map((curr) => {
@@ -72,6 +76,7 @@ function App() {
       setTimeout(function(){setWrong(false)}, 200)
       setTimeout(function(){e.target.value = ""}, 200)
       if(lives-1 == 0){
+        localStorage.setItem("page", "scoreboard");
         setDisplayScore(true);
       }
       const time = new Date();
@@ -83,6 +88,7 @@ function App() {
   function gotoHome(){
     setSubmit(true);
     setDisplayScore(false);
+    localStorage.setItem("page", "home");
     restartGame();
   }
 
@@ -113,7 +119,10 @@ function App() {
             <img className = "heart" src = {heart}></img>
           )}
         </div>
-        <div className = "showScore" onClick={() => {setDisplayScore(true)}}>
+        <div className = "showScore" onClick={() => {
+            setDisplayScore(true)
+            localStorage.setItem("page", "scoreboard")
+            }}>
             Scoreboard
         </div>
         <div className="m-5 w-100 d-flex justify-content-center align-items-center">
