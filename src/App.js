@@ -36,7 +36,6 @@ function App() {
       })
       dataArray.sort(function(a, b){return a[0]-b[0]});
       dataArray.reverse();
-      console.log(dataArray, typeof(dataArray[0][0]));
       setScoreBoard(dataArray);
     }) 
   }, [submit])
