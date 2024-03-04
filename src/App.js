@@ -164,7 +164,7 @@ function App() {
             <div className="dispScore">
               Your Score : {score}
             </div>
-            <button onClick = {() => gotoHome()} className = "btn btn-primary">Try Again</button>
+            <button onClick = {() => gotoHome()} className = "btn btn-primary">Play</button>
             <div>
               <input 
                 type="text" 
