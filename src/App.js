@@ -104,7 +104,7 @@ function App() {
       e.target.value = "";
       e.target.placeholder = "Cannot submit again";
     }
-    else if(score === 0){
+    else if(e.key === 'Enter' && score === 0){
       e.target.value = "";
       e.target.placeholder = "Not Valid Score";
     }
