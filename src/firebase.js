@@ -4,7 +4,7 @@ import {doc, getFirestore, updateDoc, getDoc} from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDDShF0Hz1Dq-FW8uwhas2Rgkptjdr-HV0",
+  apiKey: [process.env.REACT_APP_API_KEY],
   authDomain: "typegame-cc3e4.firebaseapp.com",
   projectId: "typegame-cc3e4",
   storageBucket: "typegame-cc3e4.appspot.com",
