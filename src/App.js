@@ -94,15 +94,19 @@ function App() {
   }
 
   function handleScoreSubmit(e){
-    if(e.key === 'Enter' && submit){
+    if(e.key === 'Enter' && submit && score != 0){
       updateData(e.target.value, score);
       e.target.value = "";
       e.target.placeholder = "Score uploaded";
       setTimeout(function(){setSubmit(false)}, 2000);
     }
-    else if(e.key === 'Enter'){
+    else if(e.key === 'Enter' && score != 0){
       e.target.value = "";
       e.target.placeholder = "Cannot submit again";
+    }
+    else if(score === 0){
+      e.target.value = "";
+      e.target.placeholder = "Not Valid Score";
     }
   }
 
